@@ -1,9 +1,12 @@
 package com.rozzer.model;
 
+import com.rozzer.common.Identity;
+import com.rozzer.common.Saved;
+
 import javax.annotation.Nonnull;
 import java.math.BigInteger;
 
-abstract class AbstractBook implements Book {
+abstract class AbstractBook implements Identity, Saved {
 
     @Nonnull
     public BigInteger getId() {

@@ -1,6 +1,6 @@
 package com.rozzer.common;
 
-public interface Saved {
+public interface Saved extends Identity, Named {
 
     /**
      * Save current object

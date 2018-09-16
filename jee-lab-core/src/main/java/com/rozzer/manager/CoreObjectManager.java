@@ -1,6 +1,6 @@
 package com.rozzer.manager;
 
-import com.rozzer.model.Book;
+import com.rozzer.common.Saved;
 
 public class CoreObjectManager {
 
@@ -15,7 +15,7 @@ public class CoreObjectManager {
     private CoreObjectManager() {
     }
 
-    public <T extends Book> Manager<T>  getManager(Class<T> clazz){
+    public <T extends Saved> Manager<T>  getManager(Class<T> clazz){
         return managerFactory.getManager(clazz);
     }
 }

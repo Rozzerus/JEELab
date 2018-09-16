@@ -1,4 +1,9 @@
 package com.rozzer.model;
 
-public class Book extends AbstractBook {
+import com.rozzer.common.AbstractSaved;
+
+public class Book extends AbstractSaved {
+    public void save() {
+
+    }
 }

@@ -1,9 +1,8 @@
 package com.rozzer.manager;
 
-import com.rozzer.model.Book;
+import com.rozzer.common.Saved;
 
 public interface ManagerFactory {
-    <U extends Book> Manager<U> getManager(Class<U> clazz);
-    void init();
-    void register(Class<? extends Book> clazz, Manager manager);
+    <U extends Saved> Manager<U> getManager(Class<U> clazz);
+    void register(Class<? extends Saved> clazz, Manager manager);
 }

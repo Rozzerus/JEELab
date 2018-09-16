@@ -1,14 +1,14 @@
 package com.rozzer.manager;
 
-import com.rozzer.model.Book;
+import com.rozzer.common.Saved;
 
 import java.math.BigInteger;
 import java.util.List;
 
-public interface Manager<T extends Book> {
-    List<Book> getAll();
-    void save(Book book);
-    void delete(Book book);
-    Book getById(BigInteger id);
-    Book create();
+public interface Manager<T extends Saved> {
+    List<T> getAll();
+    void save(T book);
+    void delete(T book);
+    T getById(BigInteger id);
+    T create();
 }

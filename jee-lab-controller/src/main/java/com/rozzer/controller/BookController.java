@@ -1,7 +1,7 @@
 package com.rozzer.controller;
 
 import com.rozzer.controller.common.Controller;
-import com.rozzer.model.Book;
+import com.rozzer.model.Film;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -11,31 +11,31 @@ import static com.rozzer.controller.common.ControllerHelper.manager;
 
 @RestController
 @RequestMapping(value = "/book")
-public class BookController implements Controller<Book> {
+public class BookController implements Controller<Film> {
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Book> getAll() {
-        return manager(Book.class).getAll();
+    public List<Film> getAll() {
+        return manager(Film.class).getAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Book create() {
-        return manager(Book.class).create();
+    public Film create() {
+        return manager(Film.class).create();
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public Book read(@RequestParam(value = "id") String id) {
-        return manager(Book.class).getById(new BigInteger(id));
+    public Film read(@RequestParam(value = "id") String id) {
+        return manager(Film.class).getById(new BigInteger(id));
     }
 
     @RequestMapping(method = RequestMethod.PUT)
-    public void update(@RequestBody Book object) {
-        manager(Book.class).save(object);
+    public void update(@RequestBody Film object) {
+        manager(Film.class).save(object);
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestBody Book object) {
-        manager(Book.class).delete(object);
+    public void delete(@RequestBody Film object) {
+        manager(Film.class).delete(object);
     }
 
 }

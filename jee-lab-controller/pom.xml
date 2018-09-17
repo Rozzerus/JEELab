@@ -7,15 +7,15 @@
     <groupId>jee-lab</groupId>
     <artifactId>jee-lab-controller</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <parent>
+        <groupId>jee-lab</groupId>
+        <artifactId>jee-lab</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <build>
         <finalName>jee-lab-controller</finalName>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.3.10.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-core</artifactId>
@@ -29,13 +29,18 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.0.5.RELEASE</version>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>5.0.5.RELEASE</version>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
 

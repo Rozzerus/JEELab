@@ -1,16 +1,15 @@
 package com.rozzer;
 
-import org.springframework.boot.CommandLineRunner;
+import com.rozzer.manager.CoreObjectManager;
+import com.rozzer.manager.ManagerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
 
 
 @SuppressWarnings("SpringFacetCodeInspection")
 @SpringBootApplication
+//@EnableJpaRepositories("com.rozzer.spring.repositories")
 public class Application {
 
 
@@ -18,24 +17,12 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    /**
-     * write all beans in console.
-     * @param ctx spring context
-     * @return bean
-     */
-    @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
 
-            System.out.println("Let's inspect the beans provided by Spring Boot:");
-
-            String[] beanNames = ctx.getBeanDefinitionNames();
-            Arrays.sort(beanNames);
-            for (String beanName : beanNames) {
-                System.out.println(beanName);
-            }
-
-        };
+    @Autowired
+    public void init(ManagerFactory managerFactory){
+        if (CoreObjectManager.getInstance().getManagerFactory() == null) {
+            CoreObjectManager.getInstance().setManagerFactory(managerFactory);
+        }
     }
 
 }

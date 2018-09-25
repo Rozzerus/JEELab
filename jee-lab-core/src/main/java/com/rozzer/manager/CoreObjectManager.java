@@ -1,6 +1,7 @@
 package com.rozzer.manager;
 
 import com.rozzer.common.Saved;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CoreObjectManager {
 
@@ -11,6 +12,15 @@ public class CoreObjectManager {
     }
 
     private ManagerFactory managerFactory;
+
+    @Autowired
+    public static void setManagerFactory(ManagerFactory factory) {
+        instance.managerFactory = factory;
+    }
+
+    public static ManagerFactory getManagerFactory() {
+        return instance.managerFactory;
+    }
 
     private CoreObjectManager() {
     }

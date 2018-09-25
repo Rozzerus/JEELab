@@ -1,5 +1,6 @@
 package com.rozzer;
 
+import com.rozzer.manager.CoreObjectManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ public class Application {
 
 
     public static void main(String[] args) {
+        CoreObjectManager.setManagerFactory(new DBManagerFactory());
         SpringApplication.run(Application.class, args);
     }
 

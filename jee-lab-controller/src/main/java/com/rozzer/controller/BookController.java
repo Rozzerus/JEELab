@@ -4,7 +4,6 @@ import com.rozzer.controller.common.Controller;
 import com.rozzer.model.Book;
 import org.springframework.web.bind.annotation.*;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import static com.rozzer.controller.common.ControllerHelper.manager;
@@ -25,7 +24,7 @@ public class BookController implements Controller<Book> {
 
     @RequestMapping(method = RequestMethod.GET)
     public Book read(@RequestParam(value = "id") String id) {
-        return manager(Book.class).getById(new BigInteger(id));
+        return manager(Book.class).getById(new Long(id));
     }
 
     @RequestMapping(method = RequestMethod.PUT)

@@ -2,11 +2,8 @@ package com.rozzer.spring.repositories;
 
 
 import com.rozzer.model.Book;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+public interface BookRepository extends JpaRepository<Book, Long> {
 
-public interface BookRepository extends CrudRepository<Book, Long> {
-
-    List<Book> findByName(String name);
 }

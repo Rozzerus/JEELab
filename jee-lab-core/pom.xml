@@ -7,14 +7,14 @@
     <groupId>jee-lab</groupId>
     <artifactId>jee-lab-core</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <build>
-        <finalName>jee-lab-core</finalName>
-    </build>
     <parent>
         <groupId>jee-lab</groupId>
         <artifactId>jee-lab</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <build>
+        <finalName>jee-lab-core</finalName>
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>

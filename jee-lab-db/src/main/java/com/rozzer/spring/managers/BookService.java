@@ -1,22 +1,21 @@
 package com.rozzer.spring.managers;
 
 import com.google.common.collect.Lists;
-import com.rozzer.manager.CoreObjectManager;
-import com.rozzer.manager.Manager;
+import com.rozzer.manager.CoreServices;
 import com.rozzer.model.Book;
 import com.rozzer.spring.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Repository
-public class BookManager implements Manager<Book> {
+@Service
+public class BookService implements com.rozzer.manager.Service<Book> {
 
     private BookRepository bookRepository;
 
     @Autowired
-    public BookManager(BookRepository bookRepository) {
+    public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
         init();
     }
@@ -27,7 +26,7 @@ public class BookManager implements Manager<Book> {
         this.bookRepository.save(new Book("Kim"));
         this.bookRepository.save(new Book("David"));
         this.bookRepository.save(new Book("Michelle"));
-        CoreObjectManager.getManagerFactory().register(Book.class, this);
+        CoreServices.getServiceFactory().register(Book.class, this);
     }
 
     public List<Book> getAll() {

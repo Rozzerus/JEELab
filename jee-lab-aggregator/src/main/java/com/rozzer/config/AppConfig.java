@@ -1,6 +1,6 @@
 package com.rozzer.config;
 
-import com.rozzer.spring.DBManagerFactory;
+import com.rozzer.spring.DBServiceFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     @Bean
-    public DBManagerFactory transferService() {
-        return new DBManagerFactory();
+    public DBServiceFactory transferService() {
+        return new DBServiceFactory();
     }
 }

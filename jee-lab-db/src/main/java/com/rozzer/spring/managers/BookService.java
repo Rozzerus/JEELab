@@ -22,7 +22,7 @@ public class BookService implements com.rozzer.manager.Service<Book> {
 
     public void init() {
         this.bookRepository.save(new Book("Jack"));
-        this.bookRepository.save(new Book("Chloe"));
+        this.bookRepository.save(new Book("FFF"));
         this.bookRepository.save(new Book("Kim"));
         this.bookRepository.save(new Book("David"));
         this.bookRepository.save(new Book("Michelle"));

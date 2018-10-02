@@ -33,7 +33,7 @@ public class CoreServices {
         return managerFactory;
     }
 
-    public <T extends Saved> Service<T> getManager(Class<T> clazz){
+    public <T extends Saved> EntityService<T> getManager(Class<T> clazz){
         return managerFactory.getManager(clazz);
     }
 }

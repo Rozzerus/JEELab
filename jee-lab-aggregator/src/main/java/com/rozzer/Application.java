@@ -1,6 +1,7 @@
 package com.rozzer;
 
 import com.rozzer.manager.CoreServices;
+import com.rozzer.model.Book;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,7 +38,18 @@ public class Application {
                 System.out.println(beanName);
             }
 
+            generateTestData();
+
         };
+    }
+
+    @Deprecated
+    private void generateTestData() {
+        CoreServices.getInstance().getManager(Book.class).save(new Book("Jack"));
+        CoreServices.getInstance().getManager(Book.class).save(new Book("FFF"));
+        CoreServices.getInstance().getManager(Book.class).save(new Book("FFFFFF    "));
+        CoreServices.getInstance().getManager(Book.class).save(new Book("David"));
+        CoreServices.getInstance().getManager(Book.class).save(new Book("Michelle"));
     }
 
 }

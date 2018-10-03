@@ -10,7 +10,6 @@ public interface Identity {
     /**
      * @return uniqueness id
      */
-    @Nonnull
     Long getId();
 
     /**

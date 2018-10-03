@@ -7,7 +7,6 @@ public interface Named {
     /**
      * @return name for object
      */
-    @Nonnull
     String getName();
 
     /**

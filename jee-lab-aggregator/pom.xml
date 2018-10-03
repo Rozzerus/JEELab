@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>jee-lab-aggregator</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${jee.lab.version}</version>
     <parent>
         <groupId>jee-lab</groupId>
         <artifactId>jee-lab</artifactId>
@@ -39,7 +39,7 @@
                 <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>copy-resources-static</id>
+                        <id>copy-resources-templates</id>
                         <phase>validate</phase>
                         <goals><goal>copy-resources</goal></goals>
                         <configuration>
@@ -47,25 +47,22 @@
                             <resources>
                                 <resource>
                                     <directory>../jee-lab-ui/dist/jee-lab-ui</directory>
-<!--                                    <excludes>
-                                        <exclude>**/*.html</exclude>
-                                    </excludes>-->
+<!--                                    <includes>
+                                        <include>**/*.html</include>
+                                    </includes>-->
                                 </resource>
                             </resources>
                         </configuration>
                     </execution>
                     <execution>
-                        <id>copy-resources-templates</id>
+                        <id>copy-resources-static</id>
                         <phase>validate</phase>
                         <goals><goal>copy-resources</goal></goals>
                         <configuration>
                             <outputDirectory>${build.directory}/classes/templates/</outputDirectory >
                             <resources>
                                 <resource>
-                                    <directory>../jee-lab-ui/dist/jee-lab-ui</directory>
-<!--                                    <includes>
-                                        <include>**/*.html</include>
-                                    </includes>-->
+                                    <directory>../jee-lab-security/target/classes/templates/</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -78,14 +75,19 @@
         <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-controller</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${jee.lab.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-db</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${jee.lab.version}</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>jee-lab</groupId>
+            <artifactId>jee-lab-security</artifactId>
+            <version>${jee.lab.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

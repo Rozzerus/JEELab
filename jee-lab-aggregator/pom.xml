@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>jee-lab</groupId>
     <artifactId>jee-lab-aggregator</artifactId>
     <version>1.0-SNAPSHOT</version>
     <parent>
@@ -37,9 +36,10 @@
             </plugin>
             <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
                 <executions>
                     <execution>
-                        <id>copy-resources</id>
+                        <id>copy-resources-static</id>
                         <phase>validate</phase>
                         <goals><goal>copy-resources</goal></goals>
                         <configuration>
@@ -47,6 +47,25 @@
                             <resources>
                                 <resource>
                                     <directory>../jee-lab-ui/dist/jee-lab-ui</directory>
+<!--                                    <excludes>
+                                        <exclude>**/*.html</exclude>
+                                    </excludes>-->
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-resources-templates</id>
+                        <phase>validate</phase>
+                        <goals><goal>copy-resources</goal></goals>
+                        <configuration>
+                            <outputDirectory>${build.directory}/classes/templates/</outputDirectory >
+                            <resources>
+                                <resource>
+                                    <directory>../jee-lab-ui/dist/jee-lab-ui</directory>
+<!--                                    <includes>
+                                        <include>**/*.html</include>
+                                    </includes>-->
                                 </resource>
                             </resources>
                         </configuration>

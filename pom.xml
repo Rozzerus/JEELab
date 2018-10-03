@@ -21,6 +21,7 @@
         <module>jee-lab-controller</module>
         <module>jee-lab-core</module>
         <module>jee-lab-db</module>
+        <module>jee-lab-ui</module>
         <module>common</module>
     </modules>
 

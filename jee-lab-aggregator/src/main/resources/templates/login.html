@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <title>JeeLabUi</title>
@@ -9,52 +9,57 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">Books</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <!--  <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>  -->
-            </li>
-        </ul>
-    </div>
-</nav>
-<div class="container mt-5">
-
-    <h1> Добро пожаловать! </h1>
-    <h2> Введите, пожалуйста, логин и пароль для входа </h2>
-
-    <div class="row mt-5">
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Books</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
 
-    <form th:action="@{/login}" id="register-form" role="form" action="/" method="post">
-        <div class="row">
-            <div class="form-group col-xs-3">
-                <label for="login">Логин</label>
-                <input type="login" class="form-control" id="login" placeholder="Логин">
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                      <a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
         </div>
-        <div class="row">
-            <div class="form-group col-xs-3">
-                <label for="password">Пароль</label>
-                <input type="password" class="form-control" id="password" placeholder="Пароль">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </>
+    </nav>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <div class="container mt-5">
+        <h1> Добро пожаловать!</h1>
+        <h2> Введите, пожалуйста, логин и пароль для входа </h2>
 
-</div>
+        <div class="row mt-5"></div>
+        <form th:action="@{/login}" method="post">
+            <div class="row">
+                <div class="form-group col-xs-3">
+                    <label for="login">Логин:
+                    <input type="text" class="form-control" id="login" name="username" placeholder="Логин"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-3">
+                    <label for="password">Пароль:
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Пароль"></label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <!--<input type="submit" value="Sign In"/>-->
+        </form>
+
+    </div>
 </body>
 </html>

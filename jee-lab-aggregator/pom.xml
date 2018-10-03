@@ -47,22 +47,6 @@
                             <resources>
                                 <resource>
                                     <directory>../jee-lab-ui/dist/jee-lab-ui</directory>
-<!--                                    <includes>
-                                        <include>**/*.html</include>
-                                    </includes>-->
-                                </resource>
-                            </resources>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>copy-resources-static</id>
-                        <phase>validate</phase>
-                        <goals><goal>copy-resources</goal></goals>
-                        <configuration>
-                            <outputDirectory>${build.directory}/classes/templates/</outputDirectory >
-                            <resources>
-                                <resource>
-                                    <directory>../jee-lab-security/target/classes/templates/</directory>
                                 </resource>
                             </resources>
                         </configuration>
@@ -85,17 +69,49 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>jee-lab</groupId>
-            <artifactId>jee-lab-security</artifactId>
-            <version>${jee.lab.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
 
+
+    <profiles>
+        <profile>
+            <id>security</id>
+            <build>
+                <finalName>jee-lab-aggregator</finalName>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <executions>
+                            <execution>
+                                <id>copy-resources-static</id>
+                                <phase>validate</phase>
+                                <goals><goal>copy-resources</goal></goals>
+                                <configuration>
+                                    <outputDirectory>${build.directory}/classes/templates/</outputDirectory >
+                                    <resources>
+                                        <resource>
+                                            <directory>../jee-lab-security/target/classes/templates/</directory>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>jee-lab</groupId>
+                    <artifactId>jee-lab-security</artifactId>
+                    <version>${jee.lab.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 
 
 

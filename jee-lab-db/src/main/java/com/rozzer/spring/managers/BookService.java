@@ -25,21 +25,20 @@ public class BookService implements EntityService<Book> {
         return Lists.newArrayList(bookRepository.findAll());
     }
 
-    public void save(Book book) {
-        bookRepository.save(book);
+    public void save(Book saved) {
+        bookRepository.save(saved);
     }
 
-    public void delete(Book book) {
-        bookRepository.delete(book);
+    public void delete(Book saved) {
+        bookRepository.delete(saved);
     }
 
     public Book getById(Long id) {
-        return bookRepository.findById(id).get();
+        return bookRepository.getOne(id);
     }
 
     public Book create() {
         Book book = new Book();
-        save(book);
-        return book;
+        return bookRepository.save(book);
     }
 }

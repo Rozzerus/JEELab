@@ -11,29 +11,25 @@ public class CoreServices {
         return instance;
     }
 
-    private ServiceFactory managerFactory;
+    private ServiceFactory serviceFactory;
 
     @Autowired
     public static void setServiceFactory(ServiceFactory factory) {
-        instance.managerFactory = factory;
+        instance.serviceFactory = factory;
     }
 
     public static ServiceFactory getServiceFactory() {
-        return instance.managerFactory;
+        return instance.serviceFactory;
+    }
+
+    public static <T extends Saved> EntityService<T> serviceFor(Class<T> clazz){
+        return instance.service(clazz);
     }
 
     private CoreServices() {
     }
 
-    public void setManagerFactory(ServiceFactory factory) {
-        this.managerFactory = factory;
-    }
-
-    public ServiceFactory getManagerFactory() {
-        return managerFactory;
-    }
-
-    public <T extends Saved> EntityService<T> getManager(Class<T> clazz){
-        return managerFactory.getManager(clazz);
+    public <T extends Saved> EntityService<T> service(Class<T> clazz){
+        return serviceFactory.service(clazz);
     }
 }

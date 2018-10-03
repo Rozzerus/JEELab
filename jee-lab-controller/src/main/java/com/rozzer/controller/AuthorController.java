@@ -1,7 +1,7 @@
 package com.rozzer.controller;
 
 import com.rozzer.controller.common.Controller;
-import com.rozzer.model.Book;
+import com.rozzer.model.Author;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -9,37 +9,36 @@ import java.util.List;
 import static com.rozzer.controller.common.ControllerHelper.manager;
 
 @RestController
-@RequestMapping(value = "/book")
-public class BookController implements Controller<Book> {
+@RequestMapping(value = "/author")
+public class AuthorController implements Controller<Author> {
 
     @Override
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Book> getAll() {
-        return manager(Book.class).getAll();
+    public List<Author> getAll() {
+        return manager(Author.class).getAll();
     }
 
     @Override
     @RequestMapping(method = RequestMethod.POST)
-    public Book create() {
-        return manager(Book.class).create();
+    public Author create() {
+        return manager(Author.class).create();
     }
 
     @Override
     @RequestMapping(method = RequestMethod.GET)
-    public Book read(@RequestParam(value = "id") String id) {
-        return manager(Book.class).getById(new Long(id));
+    public Author read(@RequestParam(value = "id") String id) {
+        return manager(Author.class).getById(new Long(id));
     }
 
     @Override
     @RequestMapping(method = RequestMethod.PUT)
-    public void update(@RequestBody Book object) {
-        manager(Book.class).save(object);
+    public void update(@RequestBody Author object) {
+        manager(Author.class).save(object);
     }
 
     @Override
     @RequestMapping(method = RequestMethod.DELETE)
-    public void delete(@RequestBody Book object) {
-        manager(Book.class).delete(object);
+    public void delete(@RequestBody Author object) {
+        manager(Author.class).delete(object);
     }
-
 }

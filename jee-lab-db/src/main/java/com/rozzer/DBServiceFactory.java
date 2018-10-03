@@ -12,7 +12,7 @@ public class DBServiceFactory implements ServiceFactory {
 
     private Map<Class<? extends Saved>, EntityService> managers = Maps.newHashMap();
 
-    public <U extends Saved> EntityService<U> getManager(Class<U> clazz) {
+    public <U extends Saved> EntityService<U> service(Class<U> clazz) {
         return managers.get(clazz);
     }
 

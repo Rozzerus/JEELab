@@ -1,7 +1,9 @@
 package com.rozzer;
 
 import com.rozzer.manager.CoreServices;
+import com.rozzer.model.Author;
 import com.rozzer.model.Book;
+import com.rozzer.model.Genre;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,11 +47,29 @@ public class Application {
 
     @Deprecated
     private void generateTestData() {
-        CoreServices.getInstance().getManager(Book.class).save(new Book("Jack"));
-        CoreServices.getInstance().getManager(Book.class).save(new Book("FFF"));
-        CoreServices.getInstance().getManager(Book.class).save(new Book("FFFFFF    "));
-        CoreServices.getInstance().getManager(Book.class).save(new Book("David"));
-        CoreServices.getInstance().getManager(Book.class).save(new Book("Michelle"));
+        Author author0 = newAuthor("Daria");
+        Author author1 = newAuthor("Alex");
+        newBook(author0, "the story of how we did the lab", Genre.STORY);
+        newBook(author0, "birthday in virtual reality", Genre.EPIC);
+        newBook(author0, "work without tea break", Genre.BALLAD);
+        newBook(author1, "development in the TA department", Genre.MYTH);
+        newBook(author1, "fuckup happened", Genre.TRAGEDY);
+        newBook(author1, "red color to you", Genre.COMEDY);
+    }
+
+    private Author newAuthor(String name) {
+        Author author = CoreServices.serviceFor(Author.class).create();
+        author.setName(name);
+        author.save();
+        return author;
+    }
+
+    private void newBook(Author author, String name, Genre genre) {
+        Book book = CoreServices.serviceFor(Book.class).create();
+        book.setAuthor(author);
+        book.setGenre(genre);
+        book.setName(name);
+        book.save();
     }
 
 }

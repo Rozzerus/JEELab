@@ -1,3 +1,27 @@
-<p>
-  book works!
-</p>
+<ng-template #content let-modal>
+  <div class="container mt-5">
+    <form>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="name">Название книги</label>
+          <input type="text" class="form-control" id="name" [value]="book.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="writer">Автор книги</label>
+          <input type="text" class="form-control" id="writer" [value]="book.author.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="kind">Жанр книги</label>
+          <select class="custom-select d-block w-100" id="kind">
+            <option [value]="genre" *ngFor="let genre of genres">{{genre}}</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    </form>
+  </div>
+</ng-template>

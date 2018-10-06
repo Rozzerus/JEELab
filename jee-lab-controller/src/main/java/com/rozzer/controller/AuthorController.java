@@ -25,7 +25,7 @@ public class AuthorController implements Controller<Author> {
     }
 
     @Override
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Author read(@RequestParam(value = "id") String id) {
         return manager(Author.class).getById(new Long(id));
     }

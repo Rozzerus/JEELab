@@ -25,7 +25,7 @@ public class BookController implements Controller<Book> {
     }
 
     @Override
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Book read(@RequestParam(value = "id") String id) {
         return manager(Book.class).getById(new Long(id));
     }

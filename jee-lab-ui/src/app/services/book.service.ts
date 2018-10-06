@@ -3,17 +3,15 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/index";
 import {Book} from "../model/book";
 import {map} from "rxjs/internal/operators";
-import {AbstractService} from "./abstract.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BookService extends AbstractService{
+export class BookService {
 
   private url = 'book';
 
   constructor(private http: HttpClient) {
-    super();
   }
 
 
@@ -43,6 +41,11 @@ export class BookService extends AbstractService{
     return this.http.put<Book>(this.url, book).pipe(
       map(this.extractData)
     );
+  }
+
+  public extractData(res: Response) {
+    let body = res;
+    return body || { };
   }
 
 

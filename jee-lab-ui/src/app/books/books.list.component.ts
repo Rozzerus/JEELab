@@ -3,11 +3,10 @@ import {BookService} from "../services/book.service";
 import {Book} from "../model/book";
 
 @Component({
-  selector: 'books',
-  templateUrl: './books.component.html',
-  styleUrls: ['./books.component.css']
+  selector: 'books-list',
+  templateUrl: './books.list.component.html',
 })
-export class BooksComponent implements OnInit {
+export class BooksListComponent implements OnInit {
 
   books: Book[];
 
@@ -17,5 +16,8 @@ export class BooksComponent implements OnInit {
   ngOnInit() {
     this.bookService.getBooks().subscribe(books => this.books = books);
   }
+
+
+
 
 }

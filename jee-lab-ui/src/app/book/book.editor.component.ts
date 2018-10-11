@@ -25,11 +25,11 @@ export class BookEditorComponent implements OnInit {
   }
 
 
-  open(){
+  open(content){
     if (this.book ==null){
       this.book= new Book();
     }
-    this.modalService.open(this.book, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.book = result;
       this.save();
     }, (reason) => {

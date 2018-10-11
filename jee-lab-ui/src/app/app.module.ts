@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 //import { InMemoryDataService }  from './in-memory-data.service';
 import {AppRoutingModule} from './app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MessagesComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, NgbModule.forRoot()
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, CommonModule, NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

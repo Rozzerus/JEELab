@@ -6,6 +6,7 @@ import com.rozzer.model.Author;
 import com.rozzer.spring.repositories.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
@@ -44,5 +45,10 @@ public class AuthorService implements EntityService<Author> {
     public Author create() {
         Author author = new Author();
         return authorRepository.save(author);
+    }
+
+    @Override
+    public List<Author> getPage(int page) {
+        throw new NotImplementedException();
     }
 }

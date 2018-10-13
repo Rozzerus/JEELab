@@ -10,4 +10,5 @@ public interface EntityService<T extends Saved> {
     void delete(T saved);
     T getById(Long id);
     T create();
+    List<T> getPage(int page);
 }

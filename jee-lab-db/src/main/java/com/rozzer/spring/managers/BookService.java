@@ -6,6 +6,8 @@ import com.rozzer.manager.EntityService;
 import com.rozzer.model.Book;
 import com.rozzer.spring.repositories.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -40,5 +42,10 @@ public class BookService implements EntityService<Book> {
     public Book create() {
         Book book = new Book();
         return bookRepository.save(book);
+    }
+
+    public List<Book> getPage(int page){
+        Page<Book> all = bookRepository.findAll(PageRequest.of(page, 10));
+        return all.getContent();
     }
 }

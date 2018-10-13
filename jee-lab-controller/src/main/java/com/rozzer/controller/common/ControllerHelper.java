@@ -6,7 +6,7 @@ import com.rozzer.manager.EntityService;
 
 public class ControllerHelper {
 
-    public static  <T extends AbstractSaved> EntityService<T> manager(Class<T> clazz){
+    public static  <T extends AbstractSaved> EntityService<T> service(Class<T> clazz){
         return CoreServices.getInstance().service(clazz);
     }
 }

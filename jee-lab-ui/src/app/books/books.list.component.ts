@@ -7,14 +7,24 @@ import {Book} from "../model/book";
   templateUrl: './books.list.component.html',
 })
 export class BooksListComponent implements OnInit {
-
+  page : number = 0;
   books: Book[];
 
   constructor(private bookService: BookService) {
   }
 
   ngOnInit() {
-    this.bookService.getBooks().subscribe(books => this.books = books);
+    this.getBooks();
+  }
+
+  getBooks(){
+    this.bookService.getBooks(this.page).subscribe(data =>
+    {
+      console.log(data);
+    },
+      (error)=>{
+      console.log(error.error.message);
+      });
   }
 
   delete(book: Book): void {
@@ -31,6 +41,11 @@ export class BooksListComponent implements OnInit {
       });
   }
 
+  setPage(i,event:any){
 
+    event.preventDefault();
+    this.page = i;
+    this.getBooks();
+  }
 
 }

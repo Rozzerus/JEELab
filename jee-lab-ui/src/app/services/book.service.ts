@@ -18,12 +18,15 @@ export class BookService {
 
 
   /** GET all books */
-  getBooks (): Observable<Book[]> {
-    return this.http.get<Book[]>(this.url+"/all")
-      .pipe(
+  getBooks (page:number)
+/*  : Observable<Book[]> */
+  {
+    return this.http.get<Book[]>(this.url+"?page=" + page)
+     .pipe(
         tap(books => this.log('fetched book')),
         catchError(this.handleError('getBooks', []))
-      );
+      )
+      ;
   }
 
   /** GET book by id.  */
@@ -104,6 +107,5 @@ export class BookService {
       return of(result as T);
     };
   }
-
 
 }

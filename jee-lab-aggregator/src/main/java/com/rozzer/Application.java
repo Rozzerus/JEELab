@@ -61,6 +61,7 @@ public class Application {
         newBook(author1, "It very beatiful program", Genre.MYTH);
         newBook(author1, "Kupi Slona", Genre.TRAGEDY);
         newBook(author1, "Lesha is senior in the future", Genre.COMEDY);
+
     }
 
     private Author newAuthor(String name) {

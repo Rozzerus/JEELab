@@ -4,40 +4,48 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>jee-lab</groupId>
     <artifactId>jee-lab-controller</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${jee.lab.version}</version>
+    <parent>
+        <groupId>jee-lab</groupId>
+        <artifactId>jee-lab</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <build>
         <finalName>jee-lab-controller</finalName>
     </build>
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.3.10.RELEASE</version>
-        </dependency>
-        <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${jee.lab.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${jee.lab.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.0.5.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>5.0.5.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
+
+
 
 
 </project>

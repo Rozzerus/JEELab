@@ -1,12 +1,12 @@
 package com.rozzer.controller.common;
 
-import com.rozzer.manager.CoreObjectManager;
-import com.rozzer.manager.Manager;
-import com.rozzer.model.Book;
+import com.rozzer.common.AbstractSaved;
+import com.rozzer.manager.CoreServices;
+import com.rozzer.manager.EntityService;
 
 public class ControllerHelper {
 
-    public static  <T extends Book> Manager<T> manager(Class<T> clazz){
-        return CoreObjectManager.getInstance().getManager(clazz);
+    public static  <T extends AbstractSaved> EntityService<T> service(Class<T> clazz){
+        return CoreServices.getInstance().service(clazz);
     }
 }

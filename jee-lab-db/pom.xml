@@ -4,23 +4,43 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>jee-lab</groupId>
     <artifactId>jee-lab-db</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${jee.lab.version}</version>
+    <parent>
+        <groupId>jee-lab</groupId>
+        <artifactId>jee-lab</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <build>
         <finalName>jee-lab-db</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
     <dependencies>
         <dependency>
             <groupId>jee-lab</groupId>
             <artifactId>jee-lab-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${jee.lab.version}</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-jpa</artifactId>
-            <version>1.9.5.RELEASE</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.version}</version>
+        </dependency>
+        <!--TODO: h2 DB is WA. Please use PostgresSQL or some real DB-->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
         </dependency>
     </dependencies>
 

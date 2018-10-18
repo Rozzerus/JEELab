@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JeeLabUi</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+
+<!-- верхний тул бар -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Books</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+<!--      <li class="nav-item">
+        <a class="nav-link" href="#">Book list</a>
+      </li>-->
+    </ul>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <h3> Список книг </h3>
+
+    <div class="row mt-1">
+      <table class="table table-borderless mt-1">
+        <tbody>
+        <tr>
+          <td><label for="name">Название книги</label><input type="text" class="form-control" id="name"></td>
+          <td><label for="name">Автор</label><input type="text" class="form-control" id="writer"></td>
+          <td> <label for="name">Жанр</label> <select class="custom-select" id="kind" required="">
+            <option value="">None</option>
+            <option>Рассказ</option>
+            <option>Повесть</option>
+            <option>Роман</option>
+          </select></td>
+        </tbody>
+      </table>
+    </div>
+    <div class="row mt-2">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <div class="col-md-6">
+          <button type="button" class="btn btn-info active">Фильтр</button>
+        </div>
+        <button type="button" class="btn btn-success pull-right btn-sm">Добавить книгу</button>
+
+      </div>
+    </div>
+</div>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Название книги</th>
+      <th scope="col">Автор</th>
+      <th scope="col">Жанр</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Война и мир</td>
+      <td>Толстой Л.Н.</td>
+      <td>роман</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-pencil-alt"></i> </button>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-trash-alt"></i> </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Преступление и наказание</td>
+      <td>Достоевский Ф.М.</td>
+      <td>роман</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-pencil-alt"></i> </button>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-trash-alt"></i> </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Отцы и Дети</td>
+      <td>Тургенев И.С.</td>
+      <td>роман</td>
+      <td>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-pencil-alt"></i> </button>
+        <button type="button" class="btn btn-outline-secondary btn-sm"><i class="fas fa-trash-alt"></i> </button>
+      </td>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

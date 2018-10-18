@@ -1,0 +1,37 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss(book)">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="name">Название книги</label>
+          <input type="text" class="form-control" id="name" [value]="book.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="writer">Автор книги</label>
+          <input type="text" class="form-control" id="writer" [value]="book.author.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-3">
+          <label for="kind">Жанр книги</label>
+          <select class="custom-select d-block w-100" id="kind">
+            <option [value]="genre" *ngFor="let genre of genres">{{genre}}</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close(book)">Save</button>
+  </div>
+</ng-template>
+<button type="button" class="btn btn-outline-secondary btn-sm" (click)="open(content)"><i class="fas fa-pencil-alt"></i> </button>

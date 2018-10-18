@@ -1,5 +1,9 @@
 package com.rozzer;
 
+import com.rozzer.manager.CoreServices;
+import com.rozzer.model.Author;
+import com.rozzer.model.Book;
+import com.rozzer.model.Genre;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +19,7 @@ public class Application {
 
 
     public static void main(String[] args) {
+        CoreServices.setServiceFactory(new DBServiceFactory());
         SpringApplication.run(Application.class, args);
     }
 
@@ -35,7 +40,43 @@ public class Application {
                 System.out.println(beanName);
             }
 
+            generateTestData();
+
         };
+    }
+
+    @Deprecated
+    private void generateTestData() {
+        Author author0 = newAuthor("Daria");
+        Author author1 = newAuthor("Alex");
+        newBook(author0, "the story of how we did the lab", Genre.STORY);
+        newBook(author0, "birthday in virtual reality", Genre.EPIC);
+        newBook(author0, "work without tea break", Genre.BALLAD);
+        newBook(author1, "development in the TA department", Genre.MYTH);
+        newBook(author1, "fuckup happened", Genre.TRAGEDY);
+        newBook(author1, "red color to you", Genre.COMEDY);
+        newBook(author0, "Var and Peace", Genre.STORY);
+        newBook(author0, "Game of Thrones", Genre.EPIC);
+        newBook(author0, "Postav'te pyat please", Genre.BALLAD);
+        newBook(author1, "It very beatiful program", Genre.MYTH);
+        newBook(author1, "Kupi Slona", Genre.TRAGEDY);
+        newBook(author1, "Lesha is senior in the future", Genre.COMEDY);
+
+    }
+
+    private Author newAuthor(String name) {
+        Author author = CoreServices.serviceFor(Author.class).create();
+        author.setName(name);
+        author.save();
+        return author;
+    }
+
+    private void newBook(Author author, String name, Genre genre) {
+        Book book = CoreServices.serviceFor(Book.class).create();
+        book.setAuthor(author);
+        book.setGenre(genre);
+        book.setName(name);
+        book.save();
     }
 
 }
